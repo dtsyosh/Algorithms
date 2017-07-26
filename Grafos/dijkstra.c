@@ -34,7 +34,7 @@ void main()
 
 	//printf("Qual caminho deseja fazer? (Vertice inicial/Vertice final) :");
 	scanf("%d %d", &verticeInicial, &verticeFinal);
-	
+
 	dijkstra(matrizAdj, distancia, quantidadeVertices, verticeInicial, verticeFinal);
 
 	//exibirMatriz(matrizAdj, quantidadeVertices);
@@ -48,11 +48,11 @@ void dijkstra(int matriz[][tamanho], int distancia[], int quantidadeVertices, in
 {
 	int fechaVertice[tamanho];			//Vertices que ja foram fechados
 	int contador, menorDistancia, vertMenorDistancia, i, linha, coluna;
-	int verticeAtual; 	
+	int verticeAtual;
     int caminho[50];
 
 
-	for(linha = 1; linha <= quantidadeVertices; linha++)		
+	for(linha = 1; linha <= quantidadeVertices; linha++)
 		for(coluna = 1; coluna <= quantidadeVertices; coluna++)
 			if(matriz[linha][coluna] == 0)
 				matriz[linha][coluna] = 999;
@@ -93,8 +93,8 @@ void dijkstra(int matriz[][tamanho], int distancia[], int quantidadeVertices, in
 	}
 
 // Código para calcular a rota tomada para a escolha do usuário
- 
-    distancia[verticeInicial] = 0;               
+
+  	distancia[verticeInicial] = 0;
  	caminho[0] = verticeFinal;
  	verticeAtual = verticeFinal;
  	contador = 1;
@@ -103,7 +103,7 @@ void dijkstra(int matriz[][tamanho], int distancia[], int quantidadeVertices, in
  		for(i = 1; i <= quantidadeVertices; i++)
  		{
  			if(distancia[verticeAtual] - matriz[verticeAtual][i] == distancia[i])
- 			{				
+ 			{
  				caminho[contador] = i;
  				contador++;
  				verticeAtual = i;
@@ -113,11 +113,11 @@ void dijkstra(int matriz[][tamanho], int distancia[], int quantidadeVertices, in
 
  		}
  	}
- 
+
 
 	printf("Caminho minimo : ");
     for (i = contador-1; i > 0; i--)
-       printf("%d -> ",caminho[i]);         
+       printf("%d -> ",caminho[i]);
     printf(" %d", caminho[0]);
 
 
@@ -135,4 +135,3 @@ void exibirMatriz(int matriz[][tamanho], int vertices)
 		printf("\n");
 	}
 }
-
